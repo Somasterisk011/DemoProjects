@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&family=Foldit:wght@100..900&display=swap');
+
+/* Resetting default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #52ACFF;
+    background-image: linear-gradient(180deg, #52ACFF 25%, #FFE32C 100%);
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+
+.scheduler {
+    width: 100%;
+    max-width: 700px;
+    background: #f0f0f0;
+    padding: 50px;
+    border-radius: 30px;
+    box-shadow: 0 0 10px #eee;
+}
+
+.scheduler h1 {
+    text-align: center;
+    font-family: "Bungee Spice", sans-serif;
+    font-weight: 400;
+    margin-bottom: 20px;
+    animation: slideIn 1.5s ease infinite alternate; /* Adding animation to the heading */
+}
+@keyframes slideIn {
+    0% {
+        transform: translateY(-20px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #cacccf;
+    border-radius: 30px;
+    padding-left: 20px;
+    margin-bottom: 25px;
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    padding: 10px;
+    font-size: 16px;
+}
+
+button {
+    background-image: linear-gradient(to right, #314755 0%, #da7613 51%, #314755 100%);
+    padding: 7px 28px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;
+    box-shadow: 0 0 20px #eee;
+    border-radius: 20px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-position: right center;
+    color: #fff;
+}
+
+ul {
+    list-style: none;
+}
+
+ul li {
+    background-color: #FFE32C;
+    color: black;
+    font-size: 20px;
+    padding: 10px 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    position: relative;
+    cursor: pointer;
+}
+
+ul li.checked {
+    text-decoration: line-through;
+    background-color: #8BC34A;
+}
+
+ul li span {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+/*  */
