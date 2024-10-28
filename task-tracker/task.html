@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List | Project</title>
+    <link rel="stylesheet" href="one.css">
+</head>
+<body>
+    
+    <div class="container">
+        
+        <div class="scheduler">
+            <h1>Task Tracker</h1>
+            <div class="row">
+                <input type="text" id="input-box" placeholder="Enter the Tasks...">
+                <button onclick="addTask()" type="submit">add</button>
+            </div>
+            <ul id="lists">
+                <!-- Tasks will be added here -->
+            </ul>
+        </div>
+    </div>
+    <script>
+        const inputBox = document.getElementById("input-box");
+        const List = document.getElementById("lists");
+
+        function addTask() {
+            if (inputBox.value === '') {
+                alert("Invalid Task! Write Something Else.");
+            } else {
+                // Creating a list item
+                let li = document.createElement("li");
+                li.textContent = inputBox.value; // Set text content to input value
+                List.appendChild(li);
+
+                // Create a span for the delete button
+                let span = document.createElement("span");
+                span.innerHTML = "\u00d7";
+                li.appendChild(span);
+            }
+            inputBox.value = ""; // Clear input box after adding task
+        }
+
+        List.addEventListener("click", function(e) {
+            if (e.target.tagName === "LI") {
+                e.target.classList.toggle("checked");
+                saveData();
+            } else if (e.target.tagName === "SPAN") {
+                e.target.parentElement.remove();
+                saveData();
+            }
+        }, false);
+
+        function saveData() {
+            localStorage.setItem("data", List.innerHTML);
+        }
+        function showTask() {
+            List.innerHTML = localStorage.getItem("data");
+        }
+        showTask();
+    </script>
+</body>
+</html>
